@@ -1,0 +1,44 @@
+Generate a structured scene graph for an image of size (1024 x 768) using the specified object and relationship categories.
+
+### **Output Format:**
+<answer>
+{
+  "objects": [
+    {"id": "object_name.number", "bbox": [x1, y1, x2, y2]},
+    ...
+  ],
+  "relationships": [
+    {"subject": "object_name.number", "predicate": "relationship_type", "object": "object_name.number"},
+    ...
+  ]
+}
+</answer>
+
+### **Guidelines:**
+- **Objects:**
+  - Assign unique IDs in the format `"object_name.number"` (e.g., `"person.1"`). The **object_name** must belong to the predefined object set: `["airplane", "animal", "arm", "bag", "banana", "basket", "beach", "bear", "bed", "bench", "bike", "bird", "board", "boat", "book", "boot", "bottle", "bowl", "box", "boy", "branch", "building", "bus", "cabinet", "cap", "car", "cat", "chair", "child", "clock", "coat", "counter", "cow", "cup", "curtain", "desk", "dog", "door", "drawer", "ear", "elephant", "engine", "eye", "face", "fence", "finger", "flag", "flower", "food", "fork", "fruit", "giraffe", "girl", "glass", "glove", "guy", "hair", "hand", "handle", "hat", "head", "helmet", "hill", "horse", "house", "jacket", "jean", "kid", "kite", "lady", "lamp", "laptop", "leaf", "leg", "letter", "light", "logo", "man", "men", "motorcycle", "mountain", "mouth", "neck", "nose", "number", "orange", "pant", "paper", "paw", "people", "person", "phone", "pillow", "pizza", "plane", "plant", "plate", "player", "pole", "post", "pot", "racket", "railing", "rock", "roof", "room", "screen", "seat", "sheep", "shelf", "shirt", "shoe", "short", "sidewalk", "sign", "sink", "skateboard", "ski", "skier", "sneaker", "snow", "sock", "stand", "street", "surfboard", "table", "tail", "tie", "tile", "tire", "toilet", "towel", "tower", "track", "train", "tree", "truck", "trunk", "umbrella", "vase", "vegetable", "vehicle", "wave", "wheel", "window", "windshield", "wing", "wire", "woman", "zebra"]`.
+  - Provide a bounding box `[x1, y1, x2, y2]` in integer pixel format.
+  - Include all visible objects, even if they have no relationships.
+
+- **Relationships:**
+  - Define relationships using `"subject"`, `"predicate"`, and `"object"`.
+  - The **predicate** must belong to the predefined relationship set: `["above", "across", "against", "along", "and", "at", "attached to", "behind", "belonging to", "between", "carrying", "covered in", "covering", "eating", "flying in", "for", "from", "growing on", "hanging from", "has", "holding", "in", "in front of", "laying on", "looking at", "lying on", "made of", "mounted on", "near", "of", "on", "on back of", "over", "painted on", "parked on", "part of", "playing", "riding", "says", "sitting on", "standing on", "to", "under", "using", "walking in", "walking on", "watching", "wearing", "wears", "with"]`.
+  - Omit relationships for orphan objects.
+
+### **Example Output:**
+<answer>
+{
+  "objects": [
+    {"id": "person.1", "bbox": [120, 200, 350, 700]},
+    {"id": "bike.2", "bbox": [100, 600, 400, 800]},
+    {"id": "helmet.3", "bbox": [150, 150, 280, 240]},
+    {"id": "tree.4", "bbox": [500, 100, 750, 700]}
+  ],
+  "relationships": [
+    {"subject": "person.1", "predicate": "riding", "object": "bike.2"},
+    {"subject": "person.1", "predicate": "wearing", "object": "helmet.3"}
+  ]
+}
+</answer>
+
+Now, generate the complete scene graph for the provided image:
