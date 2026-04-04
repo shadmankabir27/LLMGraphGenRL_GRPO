@@ -78,17 +78,17 @@ def format_reward(pred_json):
   if ("objects" in keys) and ("relationships" in keys):
     return 1.0
 
-  if "_raw_text" in keys:
-    text = pred_json["_raw_text"]
-    if re.search(r'"objects"', text, re.I) and re.search(r'"relationships"', text, re.I):
-        return 1.0
-    return 0.0
+#   if "_raw_text" in keys:
+#     text = pred_json["_raw_text"]
+#     if re.search(r'"objects"', text, re.I) and re.search(r'"relationships"', text, re.I):
+#         return 1.0
+#     return 0.0
 
-  if "_extracted" in keys:
-    text = pred_json["_extracted"]
-    if re.search(r'"objects"', text, re.I) and re.search(r'"relationships"', text, re.I):
-        return 1.0
-    return 0.0
+#   if "_extracted" in keys:
+#     text = pred_json["_extracted"]
+#     if re.search(r'"objects"', text, re.I) and re.search(r'"relationships"', text, re.I):
+#         return 1.0
+#     return 0.0
 
   return 0.0
 
@@ -107,7 +107,15 @@ def bbox_iou(b1, b2):
 def gt_triplets(gt_graph):
     # gt_graph["objects"] and gt_graph["relationships"]
     id_to_box = {}
+    if isinstance(gt_graph["objects"], str):
+        gt_graph["objects"] = ast.literal_eval(gt_graph["objects"])
+    
+    if isinstance(gt_graph["relationships"], str):
+        gt_graph["relationships"] = ast.literal_eval(gt_graph["relationships"])
+    
     for o in gt_graph["objects"]:
+        # print("checking gt object ", o)
+        
         oid = o["id"] if isinstance(o, dict) else o[0]
         bbox = o["bbox"] if isinstance(o, dict) else o[1]
         id_to_box[oid] = bbox
@@ -193,10 +201,10 @@ def hard_recall_relax(pred_graph, gt_graph, iou_thr=0.5, sim_thr=0.8):
 
 def total_reward(pred_graph, gt_graph):
   r_format = format_reward(pred_graph)
-  r_hr = hard_recall(pred_graph, gt_graph)
-  r_hrr = hard_recall_relax(pred_graph, gt_graph)
   if r_format == 0.0:
     return 0.0
+  r_hr = hard_recall(pred_graph, gt_graph)
+  r_hrr = hard_recall_relax(pred_graph, gt_graph)
 
   return r_format * 2.0 + r_hr * 0.4 + r_hrr * 0.4
 
