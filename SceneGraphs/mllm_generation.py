@@ -46,8 +46,8 @@ def build_inputs(processor: AutoProcessor, messages, device: torch.device):
     # process_vision_info (from qwen_vl_utils) turns the messages image(s) into tensors
     image_inputs, video_inputs = process_vision_info(messages)
 
-    print("IMAGE INPUTS")
-    print(image_inputs)
+    # print("IMAGE INPUTS")
+    # print(image_inputs)
 
     # Build model inputs (text + image tensors)
     inputs = processor(
@@ -76,7 +76,7 @@ def extract_answer_content(text: str) -> str:
     return m.group(0).strip() if m else text
 
 
-def generate_and_parse(model, processor: AutoProcessor, inputs: Dict[str, torch.Tensor], max_new_tokens: int = 2048) -> Any:
+def generate_and_parse(model, processor: AutoProcessor, inputs: Dict[str, torch.Tensor], gen_args: Dict) -> Any:
     """Run generation and parse the scene-graph JSON from the generated text.
 
     The repository trims prompt tokens and decodes only the generated suffix. We follow
@@ -86,12 +86,13 @@ def generate_and_parse(model, processor: AutoProcessor, inputs: Dict[str, torch.
     with torch.no_grad():
         generated_ids = model.generate(
             **inputs,
-            max_new_tokens=max_new_tokens,
-            # temperature=0.01,
-            # top_k=1,
-            # top_p=0.001,
-            # repetition_penalty=1.0,
-            # do_sample=False,
+            **gen_args
+            # max_new_tokens=config.get('max_new_tokens', 2048),
+            # temperature=config.get('temprature', 0.01),
+            # top_k=config.get('top_k', 1),
+            # top_p=config.get('top_p', 0.001),
+            # repetition_penalty=config.get('repetition_penalty', 1.0),
+            # do_sample=config.get('do_sample', False),
         )
 
     # Trim prompt tokens: generated_ids is [batch, seq], inputs['input_ids'] is the prompt
@@ -115,13 +116,13 @@ def generate_and_parse(model, processor: AutoProcessor, inputs: Dict[str, torch.
 
 
 # make function to generate a scene graph given a sample and model
-def generate_pipeline(sample, model, processor, sys_prompt=None):
+def generate_pipeline(sample, model, processor, config, sys_prompt=None):
   prompt = sample["prompt_close"]
 
   messages = build_messages(sample["image"], prompt, system_prompt=sys_prompt)
   inputs, prompt_text = build_inputs(processor, messages, model.device)
 
-  scene_graph = generate_and_parse(model, processor, inputs)
+  scene_graph = generate_and_parse(model, processor, inputs, config)
   return scene_graph
 
 

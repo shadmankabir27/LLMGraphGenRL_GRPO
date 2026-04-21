@@ -109,13 +109,13 @@ def gt_triplets(gt_graph):
     id_to_box = {}
     if isinstance(gt_graph["objects"], str):
         gt_graph["objects"] = ast.literal_eval(gt_graph["objects"])
-    
+
     if isinstance(gt_graph["relationships"], str):
         gt_graph["relationships"] = ast.literal_eval(gt_graph["relationships"])
-    
+
     for o in gt_graph["objects"]:
         # print("checking gt object ", o)
-        
+
         oid = o["id"] if isinstance(o, dict) else o[0]
         bbox = o["bbox"] if isinstance(o, dict) else o[1]
         id_to_box[oid] = bbox
@@ -129,7 +129,20 @@ def gt_triplets(gt_graph):
         })
     return id_to_box, trips
 
-def hard_recall(pred_graph, gt_graph, iou_thr=0.5):
+def soft_match_predicates(pr1, pr2):
+  pr1_words = pr1.split()
+  pr2_words = pr2.split()
+  # filter out empty
+  pr1_words = [w for w in pr1_words if w]
+  pr2_words = [w for w in pr2_words if w]
+
+  # get common words
+  common_words = set(pr1_words) & set(pr2_words)
+  if len(common_words) > 0:
+    return True
+  return False
+
+def hard_recall(pred_graph, gt_graph):
     pred_objs = {o["id"]: o["bbox"] for o in pred_graph.get("objects", [])}
     gt_objs, gt_rels = gt_triplets(gt_graph)
 
@@ -139,20 +152,29 @@ def hard_recall(pred_graph, gt_graph, iou_thr=0.5):
         return 0.0
 
     for gr in gt_rels:
-        ps = gr["subject"]
-        po = gr["object"]
+        ps = get_class(gr["subject"])
+        po = get_class(gr["object"])
         pred_match = False
         for pr in pred_graph.get("relationships", []):
-            if pr["predicate"] != gr["predicate"]:
-                continue
-            if pr["subject"] != ps or pr["object"] != po:
+
+            if pr.get("predicate", "") != gr["predicate"] and not (soft_match_predicates(pr.get("predicate", ""), gr["predicate"])):
                 continue
 
-            print("same atleast")
-            if ps in pred_objs and po in pred_objs and ps in gt_objs and po in gt_objs:
-                if bbox_iou(pred_objs[ps], gt_objs[ps]) > iou_thr and bbox_iou(pred_objs[po], gt_objs[po]) > iou_thr:
-                    pred_match = True
-                    break
+            # print("predicate atleast - ", gr['predicate'], " x " , pr.get("predicate", ""))
+            # # subject and object
+            # print("pred subj ", get_class(pr.get("subject", "")), " gt subj ", ps)
+            # print("pred obj ", get_class(pr.get("object", "")), " gt obj ", po)
+
+            if get_class(pr.get("subject", "")) != ps or get_class(pr.get("object", "")) != po:
+                continue
+
+            # print("same atleast")
+            # if ps in pred_objs and po in pred_objs and ps in gt_objs and po in gt_objs:
+            pred_match = True
+            break
+                # if bbox_iou(pred_objs[ps], gt_objs[ps]) > iou_thr and bbox_iou(pred_objs[po], gt_objs[po]) > iou_thr:
+                #     pred_match = True
+                #     break
         if pred_match:
             matched += 1
 
@@ -160,12 +182,13 @@ def hard_recall(pred_graph, gt_graph, iou_thr=0.5):
 
 
 # hard recall + relax
+# hard recall + relax
 from difflib import SequenceMatcher
 
 def name_sim(a, b):
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
-def hard_recall_relax(pred_graph, gt_graph, iou_thr=0.5, sim_thr=0.8):
+def hard_recall_relax(pred_graph, gt_graph, sim_thr=0.5):
     pred_objs = {o["id"]: o["bbox"] for o in pred_graph.get("objects", [])}
     gt_objs, gt_rels = gt_triplets(gt_graph)
 
@@ -179,19 +202,36 @@ def hard_recall_relax(pred_graph, gt_graph, iou_thr=0.5, sim_thr=0.8):
         go = get_class(gr["object"])
         gp = gr["predicate"]
 
+        # print("\n== for rl ===" , gr)
+
         best = False
         for pr in pred_graph.get("relationships", []):
-            ps = get_class(pr["subject"])
-            po = get_class(pr["object"])
-            pp = pr["predicate"]
+            ps = get_class(pr.get("subject", ""))
+            po = get_class(pr.get("object", ""))
+            pp = pr.get("predicate", "")
 
-            if name_sim(ps, gs) < sim_thr or name_sim(po, go) < sim_thr or name_sim(pp, gp) < sim_thr:
+            s_sim = name_sim(ps, gs)
+            o_sim = name_sim(po, go)
+
+            if soft_match_predicates(pp, gp):
+                p_sim = 1.0
+            else:
+              p_sim = name_sim(pp, gp)
+
+
+
+            if s_sim < sim_thr or o_sim < sim_thr or p_sim < sim_thr:
                 continue
 
-            if pr["subject"] in pred_objs and pr["object"] in pred_objs and gr["subject"] in gt_objs and gr["object"] in gt_objs:
-                if bbox_iou(pred_objs[pr["subject"]], gt_objs[gr["subject"]]) > iou_thr and bbox_iou(pred_objs[pr["object"]], gt_objs[gr["object"]]) > iou_thr:
-                    best = True
-                    break
+            # print(f" sim subj {gs} - {ps}", s_sim)
+            # print(f"sim obj {go} - {po}", o_sim)
+            # print(f"sim pred {gp} - {pp}", p_sim)
+
+
+            # if pr["subject"] in pred_objs and pr["object"] in pred_objs and gr["subject"] in gt_objs and gr["object"] in gt_objs:
+            #     if bbox_iou(pred_objs[pr["subject"]], gt_objs[gr["subject"]]) > iou_thr and bbox_iou(pred_objs[pr["object"]], gt_objs[gr["object"]]) > iou_thr:
+            best = True
+            break
 
         if best:
             matched += 1
@@ -199,12 +239,38 @@ def hard_recall_relax(pred_graph, gt_graph, iou_thr=0.5, sim_thr=0.8):
     return matched / total
 
 
+# nodes match
+
+def nodes_match_reward(pred_graph, gt_graph):
+  pred_objs = [o["id"] for o in pred_graph.get("objects", [])]
+  if len(pred_objs) == 0:
+    return 0.0
+
+  gt_objs, _ = gt_triplets(gt_graph)
+  gt_classes = set([get_class(o_id) for o_id in gt_objs])
+
+  matched = 0
+  for p_obj in pred_objs:
+    if get_class(p_obj) in gt_classes:
+      matched += 1
+
+  return matched / len(pred_objs)
+
+
 def total_reward(pred_graph, gt_graph):
   r_format = format_reward(pred_graph)
-  if r_format == 0.0:
-    return 0.0
+  r_n_match = nodes_match_reward(pred_graph, gt_graph)
   r_hr = hard_recall(pred_graph, gt_graph)
   r_hrr = hard_recall_relax(pred_graph, gt_graph)
+  # if r_format == 0.0:
+  #   return 0.0
 
-  return r_format * 2.0 + r_hr * 0.4 + r_hrr * 0.4
+  total = r_format * 2.0 + r_hr * 0.4 + r_hrr * 0.4 + r_n_match * 0.2
+  return {
+      "total": total,
+      "format": r_format,
+      "nodes_match": r_n_match,
+      "hard_recall": r_hr,
+      "hard_recall_relax": r_hrr
+  }
 

@@ -2,6 +2,9 @@
 
 This README explains how scene-graph generation works using the Qwen multi-modal LLM (Qwen MLLM), how inputs and outputs are represented, the reward signals used by the GRPO trainer, and how GRPO training is configured in this repo.
 
+### Download dataset in datasets folder
+Link - https://drive.google.com/drive/folders/1Xy7a_CR2fY7KuOWaqmNZnO5DI_Fb7Wb1?usp=sharing
+
 **Generation (Qwen MLLM)**
 
 - **Pipeline**: We use the Qwen visual-language model via an `AutoProcessor` and the helper functions in `mllm_generation.py` to create model-ready inputs and to decode outputs.
