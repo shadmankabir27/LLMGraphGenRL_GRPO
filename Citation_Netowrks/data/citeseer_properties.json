@@ -1,0 +1,12 @@
+{
+  "domain_name": "citeseer",
+  "num_nodes": 3327,
+  "num_edges": 4552,
+  "clustering_coefficient": 0.14147102442629086,
+  "diameter": -1,
+  "avg_cycle_length": 12.118460613349368,
+  "is_connected": false,
+  "avg_degree": 2.7363991584009617,
+  "max_degree": 99,
+  "num_triangles": 1167
+}

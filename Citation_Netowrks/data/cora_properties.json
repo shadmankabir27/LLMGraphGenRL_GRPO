@@ -1,0 +1,12 @@
+{
+  "domain_name": "cora",
+  "num_nodes": 2708,
+  "num_edges": 5278,
+  "clustering_coefficient": 0.24067329850193728,
+  "diameter": -1,
+  "avg_cycle_length": 36.88444108761329,
+  "is_connected": false,
+  "avg_degree": 3.8980797636632203,
+  "max_degree": 168,
+  "num_triangles": 1630
+}
