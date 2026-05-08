@@ -114,15 +114,15 @@ Each folder contains Jupyter notebooks (`.ipynb`) and any supporting Python scri
 
 | Track | Domain | Folder |
 |---|---|---|
-| Team Member 1 | Citation Networks | `Citation_Netowrks/` |
-| Team Member 2 | Molecular Generation | `MolecularGeneration/` |
-| Team Member 3 | Scene Graphs | `SceneGraphs/` |
+| Homaira Huda Shomee | Citation Networks | `Citation_Netowrks/` |
+| Shadman Kabir | Molecular Generation | `MolecularGeneration/` |
+| Mehul Mathur | Scene Graphs | `SceneGraphs/` |
 
 ---
 
 ## Course
 
-**CS594** — University Course Final Project  
+**CS594** — Reinforcement Learning Course Final Project  
 All work in this repository was produced for academic purposes.
 
 ---
