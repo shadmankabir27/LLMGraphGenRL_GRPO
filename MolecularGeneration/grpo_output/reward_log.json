@@ -1,0 +1,602 @@
+[
+  {
+    "step": 1,
+    "reward": 0.8247374892234802,
+    "reward_std": 0.10403015464544296,
+    "completion_len": 245.625
+  },
+  {
+    "step": 2,
+    "reward": 0.903487503528595,
+    "reward_std": 0.10216465592384338,
+    "completion_len": 227.75
+  },
+  {
+    "step": 3,
+    "reward": 0.950124979019165,
+    "reward_std": 0.02546735107898712,
+    "completion_len": 204.875
+  },
+  {
+    "step": 4,
+    "reward": 0.8381249904632568,
+    "reward_std": 0.1051703542470932,
+    "completion_len": 136.375
+  },
+  {
+    "step": 5,
+    "reward": 0.826574981212616,
+    "reward_std": 0.11429934203624725,
+    "completion_len": 109.0
+  },
+  {
+    "step": 6,
+    "reward": 0.9143375158309937,
+    "reward_std": 0.06055356189608574,
+    "completion_len": 192.875
+  },
+  {
+    "step": 7,
+    "reward": 0.898062527179718,
+    "reward_std": 0.0890977755188942,
+    "completion_len": 249.75
+  },
+  {
+    "step": 8,
+    "reward": 0.841712474822998,
+    "reward_std": 0.10540950298309326,
+    "completion_len": 141.125
+  },
+  {
+    "step": 9,
+    "reward": 0.8141499757766724,
+    "reward_std": 0.10519648343324661,
+    "completion_len": 233.125
+  },
+  {
+    "step": 10,
+    "reward": 0.873212456703186,
+    "reward_std": 0.11215078830718994,
+    "completion_len": 150.375
+  },
+  {
+    "step": 11,
+    "reward": 0.8788124918937683,
+    "reward_std": 0.107605941593647,
+    "completion_len": 213.25
+  },
+  {
+    "step": 12,
+    "reward": 0.8543999791145325,
+    "reward_std": 0.11638899147510529,
+    "completion_len": 198.25
+  },
+  {
+    "step": 13,
+    "reward": 0.8540500402450562,
+    "reward_std": 0.07036107778549194,
+    "completion_len": 229.0
+  },
+  {
+    "step": 14,
+    "reward": 0.811787486076355,
+    "reward_std": 0.175848126411438,
+    "completion_len": 211.0
+  },
+  {
+    "step": 15,
+    "reward": 0.9238749742507935,
+    "reward_std": 0.09285024553537369,
+    "completion_len": 181.375
+  },
+  {
+    "step": 16,
+    "reward": 0.9249249696731567,
+    "reward_std": 0.084135502576828,
+    "completion_len": 146.125
+  },
+  {
+    "step": 17,
+    "reward": 0.9263250231742859,
+    "reward_std": 0.025596199557185173,
+    "completion_len": 202.875
+  },
+  {
+    "step": 18,
+    "reward": 0.8793375492095947,
+    "reward_std": 0.12639489769935608,
+    "completion_len": 205.875
+  },
+  {
+    "step": 19,
+    "reward": 0.9292124509811401,
+    "reward_std": 0.05970661714673042,
+    "completion_len": 255.375
+  },
+  {
+    "step": 20,
+    "reward": 0.8768874406814575,
+    "reward_std": 0.07894937694072723,
+    "completion_len": 155.25
+  },
+  {
+    "step": 21,
+    "reward": 0.9280750155448914,
+    "reward_std": 0.04455363005399704,
+    "completion_len": 193.75
+  },
+  {
+    "step": 22,
+    "reward": 0.9044500589370728,
+    "reward_std": 0.09886123239994049,
+    "completion_len": 165.5
+  },
+  {
+    "step": 23,
+    "reward": 0.8921999931335449,
+    "reward_std": 0.08180125802755356,
+    "completion_len": 198.0
+  },
+  {
+    "step": 24,
+    "reward": 0.9040124416351318,
+    "reward_std": 0.07287538796663284,
+    "completion_len": 188.125
+  },
+  {
+    "step": 25,
+    "reward": 0.830162525177002,
+    "reward_std": 0.12657035887241364,
+    "completion_len": 285.875
+  },
+  {
+    "step": 26,
+    "reward": 0.874875009059906,
+    "reward_std": 0.07077248394489288,
+    "completion_len": 160.125
+  },
+  {
+    "step": 27,
+    "reward": 0.8694499731063843,
+    "reward_std": 0.11164192110300064,
+    "completion_len": 251.75
+  },
+  {
+    "step": 28,
+    "reward": 0.8492375016212463,
+    "reward_std": 0.08980284631252289,
+    "completion_len": 228.125
+  },
+  {
+    "step": 29,
+    "reward": 0.7889500260353088,
+    "reward_std": 0.10022544115781784,
+    "completion_len": 205.375
+  },
+  {
+    "step": 30,
+    "reward": 0.8843249678611755,
+    "reward_std": 0.12800174951553345,
+    "completion_len": 212.125
+  },
+  {
+    "step": 31,
+    "reward": 0.8713750243186951,
+    "reward_std": 0.12795305252075195,
+    "completion_len": 179.375
+  },
+  {
+    "step": 32,
+    "reward": 0.8964874744415283,
+    "reward_std": 0.05650452524423599,
+    "completion_len": 204.5
+  },
+  {
+    "step": 33,
+    "reward": 0.8405749797821045,
+    "reward_std": 0.13433055579662323,
+    "completion_len": 275.25
+  },
+  {
+    "step": 34,
+    "reward": 0.9071624875068665,
+    "reward_std": 0.07166709750890732,
+    "completion_len": 174.5
+  },
+  {
+    "step": 35,
+    "reward": 0.8151999711990356,
+    "reward_std": 0.10512526333332062,
+    "completion_len": 284.25
+  },
+  {
+    "step": 36,
+    "reward": 0.8310375213623047,
+    "reward_std": 0.12034821510314941,
+    "completion_len": 191.125
+  },
+  {
+    "step": 37,
+    "reward": 0.938575029373169,
+    "reward_std": 0.04436784237623215,
+    "completion_len": 151.25
+  },
+  {
+    "step": 38,
+    "reward": 0.858162522315979,
+    "reward_std": 0.13222189247608185,
+    "completion_len": 135.75
+  },
+  {
+    "step": 39,
+    "reward": 0.8833625316619873,
+    "reward_std": 0.07022258639335632,
+    "completion_len": 175.625
+  },
+  {
+    "step": 40,
+    "reward": 0.7363624572753906,
+    "reward_std": 0.11783425509929657,
+    "completion_len": 265.375
+  },
+  {
+    "step": 41,
+    "reward": 0.8141499757766724,
+    "reward_std": 0.11435586214065552,
+    "completion_len": 210.875
+  },
+  {
+    "step": 42,
+    "reward": 0.8681374788284302,
+    "reward_std": 0.08357388526201248,
+    "completion_len": 183.125
+  },
+  {
+    "step": 43,
+    "reward": 0.8541374802589417,
+    "reward_std": 0.104873888194561,
+    "completion_len": 233.375
+  },
+  {
+    "step": 44,
+    "reward": 0.9283375144004822,
+    "reward_std": 0.024592500180006027,
+    "completion_len": 224.875
+  },
+  {
+    "step": 45,
+    "reward": 0.7624374628067017,
+    "reward_std": 0.15623021125793457,
+    "completion_len": 263.0
+  },
+  {
+    "step": 46,
+    "reward": 0.8409250378608704,
+    "reward_std": 0.10856208205223083,
+    "completion_len": 253.625
+  },
+  {
+    "step": 47,
+    "reward": 0.8697999715805054,
+    "reward_std": 0.09260507673025131,
+    "completion_len": 211.5
+  },
+  {
+    "step": 48,
+    "reward": 0.8227249979972839,
+    "reward_std": 0.10056205838918686,
+    "completion_len": 225.875
+  },
+  {
+    "step": 49,
+    "reward": 0.8428499698638916,
+    "reward_std": 0.07744144648313522,
+    "completion_len": 217.125
+  },
+  {
+    "step": 50,
+    "reward": 0.8408374786376953,
+    "reward_std": 0.11454297602176666,
+    "completion_len": 234.625
+  },
+  {
+    "step": 51,
+    "reward": 0.8102999925613403,
+    "reward_std": 0.09961525350809097,
+    "completion_len": 191.75
+  },
+  {
+    "step": 52,
+    "reward": 0.8617500066757202,
+    "reward_std": 0.12224402278661728,
+    "completion_len": 222.0
+  },
+  {
+    "step": 53,
+    "reward": 0.8623625040054321,
+    "reward_std": 0.1240103617310524,
+    "completion_len": 269.125
+  },
+  {
+    "step": 54,
+    "reward": 0.865512490272522,
+    "reward_std": 0.1179521232843399,
+    "completion_len": 165.875
+  },
+  {
+    "step": 55,
+    "reward": 0.9065500497817993,
+    "reward_std": 0.05251266807317734,
+    "completion_len": 185.0
+  },
+  {
+    "step": 56,
+    "reward": 0.8529125452041626,
+    "reward_std": 0.1065133810043335,
+    "completion_len": 261.125
+  },
+  {
+    "step": 57,
+    "reward": 0.8356750011444092,
+    "reward_std": 0.11446093022823334,
+    "completion_len": 178.0
+  },
+  {
+    "step": 58,
+    "reward": 0.9141625165939331,
+    "reward_std": 0.04665972292423248,
+    "completion_len": 167.125
+  },
+  {
+    "step": 59,
+    "reward": 0.9275500178337097,
+    "reward_std": 0.04877808690071106,
+    "completion_len": 216.875
+  },
+  {
+    "step": 60,
+    "reward": 0.8152874708175659,
+    "reward_std": 0.07030477374792099,
+    "completion_len": 148.0
+  },
+  {
+    "step": 61,
+    "reward": 0.81659996509552,
+    "reward_std": 0.11584524065256119,
+    "completion_len": 132.625
+  },
+  {
+    "step": 62,
+    "reward": 0.8033000230789185,
+    "reward_std": 0.1085016056895256,
+    "completion_len": 290.75
+  },
+  {
+    "step": 63,
+    "reward": 0.850724995136261,
+    "reward_std": 0.0807008221745491,
+    "completion_len": 247.875
+  },
+  {
+    "step": 64,
+    "reward": 0.9292124509811401,
+    "reward_std": 0.056583765894174576,
+    "completion_len": 146.375
+  },
+  {
+    "step": 65,
+    "reward": 0.8893125057220459,
+    "reward_std": 0.11669918149709702,
+    "completion_len": 140.625
+  },
+  {
+    "step": 66,
+    "reward": 0.8628000020980835,
+    "reward_std": 0.08057692646980286,
+    "completion_len": 169.375
+  },
+  {
+    "step": 67,
+    "reward": 0.8755750060081482,
+    "reward_std": 0.099151611328125,
+    "completion_len": 275.5
+  },
+  {
+    "step": 68,
+    "reward": 0.8495000600814819,
+    "reward_std": 0.09325817227363586,
+    "completion_len": 155.5
+  },
+  {
+    "step": 69,
+    "reward": 0.892549991607666,
+    "reward_std": 0.08249738812446594,
+    "completion_len": 211.0
+  },
+  {
+    "step": 70,
+    "reward": 0.8815250396728516,
+    "reward_std": 0.097344771027565,
+    "completion_len": 149.25
+  },
+  {
+    "step": 71,
+    "reward": 0.8528250455856323,
+    "reward_std": 0.10952244699001312,
+    "completion_len": 157.75
+  },
+  {
+    "step": 72,
+    "reward": 0.8129249811172485,
+    "reward_std": 0.10307960957288742,
+    "completion_len": 243.875
+  },
+  {
+    "step": 73,
+    "reward": 0.8271874785423279,
+    "reward_std": 0.10180019587278366,
+    "completion_len": 264.25
+  },
+  {
+    "step": 74,
+    "reward": 0.8204500079154968,
+    "reward_std": 0.1264890730381012,
+    "completion_len": 195.125
+  },
+  {
+    "step": 75,
+    "reward": 0.8358500003814697,
+    "reward_std": 0.13492657244205475,
+    "completion_len": 257.25
+  },
+  {
+    "step": 76,
+    "reward": 0.7593749761581421,
+    "reward_std": 0.059488534927368164,
+    "completion_len": 261.875
+  },
+  {
+    "step": 77,
+    "reward": 0.8641999959945679,
+    "reward_std": 0.06718335300683975,
+    "completion_len": 228.625
+  },
+  {
+    "step": 78,
+    "reward": 0.8233374953269958,
+    "reward_std": 0.11317194253206253,
+    "completion_len": 166.875
+  },
+  {
+    "step": 79,
+    "reward": 0.8384749889373779,
+    "reward_std": 0.11599545925855637,
+    "completion_len": 231.5
+  },
+  {
+    "step": 80,
+    "reward": 0.82464998960495,
+    "reward_std": 0.12252312153577805,
+    "completion_len": 167.75
+  },
+  {
+    "step": 81,
+    "reward": 0.8113499879837036,
+    "reward_std": 0.13771788775920868,
+    "completion_len": 277.5
+  },
+  {
+    "step": 82,
+    "reward": 0.8882625102996826,
+    "reward_std": 0.07817192375659943,
+    "completion_len": 196.125
+  },
+  {
+    "step": 83,
+    "reward": 0.837862491607666,
+    "reward_std": 0.10717996954917908,
+    "completion_len": 124.375
+  },
+  {
+    "step": 84,
+    "reward": 0.8547500371932983,
+    "reward_std": 0.09014134109020233,
+    "completion_len": 136.0
+  },
+  {
+    "step": 85,
+    "reward": 0.9494249820709229,
+    "reward_std": 0.027901718392968178,
+    "completion_len": 154.75
+  },
+  {
+    "step": 86,
+    "reward": 0.783174991607666,
+    "reward_std": 0.13241912424564362,
+    "completion_len": 114.75
+  },
+  {
+    "step": 87,
+    "reward": 0.8519500494003296,
+    "reward_std": 0.06432604789733887,
+    "completion_len": 199.5
+  },
+  {
+    "step": 88,
+    "reward": 0.9332374930381775,
+    "reward_std": 0.054399535059928894,
+    "completion_len": 200.875
+  },
+  {
+    "step": 89,
+    "reward": 0.8373374938964844,
+    "reward_std": 0.1151670441031456,
+    "completion_len": 290.875
+  },
+  {
+    "step": 90,
+    "reward": 0.8894875049591064,
+    "reward_std": 0.10920029133558273,
+    "completion_len": 254.75
+  },
+  {
+    "step": 91,
+    "reward": 0.8375124931335449,
+    "reward_std": 0.13542962074279785,
+    "completion_len": 262.25
+  },
+  {
+    "step": 92,
+    "reward": 0.8785499930381775,
+    "reward_std": 0.09217852354049683,
+    "completion_len": 162.625
+  },
+  {
+    "step": 93,
+    "reward": 0.8956999778747559,
+    "reward_std": 0.09365808218717575,
+    "completion_len": 187.25
+  },
+  {
+    "step": 94,
+    "reward": 0.8893125057220459,
+    "reward_std": 0.09736253321170807,
+    "completion_len": 139.625
+  },
+  {
+    "step": 95,
+    "reward": 0.8274500370025635,
+    "reward_std": 0.08322054147720337,
+    "completion_len": 227.5
+  },
+  {
+    "step": 96,
+    "reward": 0.8144999742507935,
+    "reward_std": 0.11789961904287338,
+    "completion_len": 238.625
+  },
+  {
+    "step": 97,
+    "reward": 0.897974967956543,
+    "reward_std": 0.08810052275657654,
+    "completion_len": 203.375
+  },
+  {
+    "step": 98,
+    "reward": 0.88423752784729,
+    "reward_std": 0.09599369764328003,
+    "completion_len": 212.25
+  },
+  {
+    "step": 99,
+    "reward": 0.9053249955177307,
+    "reward_std": 0.08360134810209274,
+    "completion_len": 171.5
+  },
+  {
+    "step": 100,
+    "reward": 0.9139000177383423,
+    "reward_std": 0.05202789232134819,
+    "completion_len": 156.375
+  }
+]

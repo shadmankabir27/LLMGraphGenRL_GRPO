@@ -1,0 +1,20 @@
+# Core ML
+transformers>=4.40
+trl>=0.19
+peft>=0.10
+bitsandbytes>=0.43
+accelerate>=0.30
+datasets>=2.18
+
+# Graph processing
+torch-geometric>=2.5
+networkx>=3.0
+
+# Plotting and analysis
+matplotlib>=3.7
+numpy>=1.24
+
+# Note: torch / torchvision / torchaudio must be installed separately
+# with CUDA support. Standard "pip install torch" will give you a
+# CPU-only build that cannot run this pipeline. See README.md or
+# setup.bat for the correct CUDA install command.
